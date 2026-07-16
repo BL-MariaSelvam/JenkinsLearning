@@ -11,4 +11,9 @@ public class SampleController {
     public String message(){
         return "Hello";
     }
+
+    @GetMapping("showmsg")
+    public String show(){
+        return "Hello Jenkins";
+    }
 }
