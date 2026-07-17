@@ -21,4 +21,10 @@ public class SampleController {
     public String disp(){
         return "I completed my Freestyle project ";
     }
+
+    @GetMapping("hellomsg")
+    public String dispmsg(){
+        return "I completed my Freestyle project on hello ";
+    }
+
 }
