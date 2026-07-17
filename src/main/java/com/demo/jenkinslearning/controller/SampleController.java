@@ -16,4 +16,9 @@ public class SampleController {
     public String show(){
         return "Hello Jenkins";
     }
+
+    @GetMapping("display")
+    public String disp(){
+        return "I completed my Freestyle project ";
+    }
 }
