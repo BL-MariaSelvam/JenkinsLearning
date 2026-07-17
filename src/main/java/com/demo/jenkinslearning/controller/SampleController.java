@@ -9,7 +9,7 @@ public class SampleController {
 
     @GetMapping("Hello")
     public String message(){
-        return "Hello";
+        return "Hello Freestyle Job";
     }
 
     @GetMapping("showmsg")
