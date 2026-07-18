@@ -32,4 +32,9 @@ public class SampleController {
         return "This is my first CI/CD production ready application on freestyle job";
     }
 
+    @GetMapping("mytestmethod")
+    public String testmethod(){
+        return "This is my test method";
+    }
+
 }
