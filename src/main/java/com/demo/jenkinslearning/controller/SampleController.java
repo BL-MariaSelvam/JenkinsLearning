@@ -27,4 +27,9 @@ public class SampleController {
         return "I completed my Freestyle project on hello ";
     }
 
+    @GetMapping("freestylejob")
+    public String freestyle(){
+        return "This is my first CI/CD production ready application on freestyle job";
+    }
+
 }
