@@ -46,28 +46,25 @@ pipeline {
         }
 
         stage('Deploy to EC2') {
-            steps {
-                sshagent(['ec2-key']) {
+    steps {
+        sshagent(['ec2-key']) {
+            sh """
+            ssh -o StrictHostKeyChecking=no ubuntu@${EC2_HOST} '
+                docker pull ${IMAGE_NAME}
 
-                    sh '''
-                    ssh -o StrictHostKeyChecking=no ubuntu@$EC2_HOST << EOF
+                docker stop springboot-app || true
 
-                    docker pull $IMAGE_NAME
+                docker rm springboot-app || true
 
-                    docker stop springboot-app || true
-
-                    docker rm springboot-app || true
-
-                    docker run -d \
-                    --name springboot-app \
-                    -p 2000:2000 \
-                    $IMAGE_NAME
-
-                    EOF
-                    '''
-                }
-            }
+                docker run -d \
+                  --name springboot-app \
+                  -p 2000:2000 \
+                  ${IMAGE_NAME}
+            '
+            """
         }
+    }
+	}
     }
 
     post {
