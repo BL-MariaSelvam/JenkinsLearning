@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    
+    tools {
+        maven 'Maven-3.9'
+        jdk 'JDK-21'   // Use the exact JDK name configured in Jenkins
+    }
+
     environment {
         IMAGE_NAME = "mariaselvam21/springboot-demo:latest"
         EC2_HOST = "13.229.78.27"
