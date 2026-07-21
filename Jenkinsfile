@@ -53,7 +53,7 @@ ssh -o StrictHostKeyChecking=no ubuntu@13.229.78.27 <<EOF
 docker pull mariaselvam21/springboot-demo:latest
 docker stop springboot-app || true
 docker rm springboot-app || true
-docker run -d --name springboot-app -p 8081:8081 mariaselvam21/springboot-demo:latest
+docker run -d --name springboot-app -p 2000:2000 mariaselvam21/springboot-demo:latest
 EOF
 '''
         }
