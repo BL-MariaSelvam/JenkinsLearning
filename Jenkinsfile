@@ -47,7 +47,7 @@ pipeline {
 
         stage('Deploy to EC2') {
     steps {
-        sshagent(['ubuntu']) {
+        sshagent(['ec2-key']) {
             sh '''
 ssh -o StrictHostKeyChecking=no ubuntu@13.229.78.27 <<EOF
 docker pull mariaselvam21/springboot-demo:latest
