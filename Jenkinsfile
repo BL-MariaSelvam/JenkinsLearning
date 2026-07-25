@@ -19,12 +19,13 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
+       stage('SonarQube Analysis') {
     steps {
         withSonarQubeEnv('SonarQube') {
             sh '''
-            echo "SONAR_HOST_URL=$SONAR_HOST_URL"
-            echo "SONAR_AUTH_TOKEN=$SONAR_AUTH_TOKEN"
+            mvn clean verify \
+            org.sonarsource.scanner.maven:sonar-maven-plugin:4.0.0.4121:sonar \
+            -Dsonar.projectKey=JenkinsLearning
             '''
         }
     }
