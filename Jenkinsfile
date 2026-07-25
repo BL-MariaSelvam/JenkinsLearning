@@ -23,7 +23,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh '''
-                    mvn sonar:sonar \
+                    mvn clean verify sonar:sonar 
                     -Dsonar.projectKey=JenkinsLearning
                     '''
                 }
